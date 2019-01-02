@@ -1,0 +1,14 @@
+.main {
+  margin: 0 20px;
+
+  &-title {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+  }
+  .suggestion-lists-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+}
