@@ -1,0 +1,43 @@
+.filter {
+  position: relative;
+  display: flex;
+  margin: 40px 0;
+
+  label {
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
+    vertical-align: top;
+    display: flex;
+    cursor: pointer;
+  }
+
+  input {
+    opacity: 0;
+  }
+
+  input:checked ~ span:before {
+    content: "";
+    background: white;
+    border: 6px $color-main-light solid;
+    box-sizing: border-box;
+  }
+
+  span {
+    margin: 6px;
+    color: white;
+    width: 100%;
+    height: 100%;
+  }
+
+  span:before {
+    content: "";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: $color-main-light;
+    margin-right: 6px;
+    position: relative;
+    top: 3px;
+  }
+}

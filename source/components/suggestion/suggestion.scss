@@ -1,0 +1,40 @@
+.suggestion {
+  position: relative;
+  border-radius: 10px;
+  background: $color-main-light;
+  padding: 10px;
+  margin: 10px;
+
+  &__category {
+    font-style: italic;
+  }
+
+  &__delete {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+  }
+
+  &__likes {
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+
+    span {
+      background: yellow;
+    }
+  }
+
+  &__date {
+    display: inline-block;
+    width: 50%;
+    vertical-align: bottom;
+  }
+
+  &:hover {
+    .suggestion__delete {
+      opacity: 1;
+    }
+  }
+}

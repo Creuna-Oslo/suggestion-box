@@ -1,0 +1,38 @@
+.suggestions-list {
+  padding: 20px 10px 10px 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background: lighten($color-main-dark, 10%);
+  display: inline-block;
+  padding: 0;
+  min-height: 200px;
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    background: yellow;
+    margin: 0 0 40px 0;
+    border-radius: 10px 10px 0 0;
+    font-size: 28px;
+
+    &.red {
+      background: red;
+    }
+
+    &.green {
+      background: #10cf10;
+    }
+
+    &.yellow {
+      background: #ffff00;
+    }
+
+    &.purple {
+      background: #c011c0;
+    }
+  }
+
+  &__empty {
+    margin: 0 20px;
+  }
+}
