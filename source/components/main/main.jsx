@@ -48,24 +48,23 @@ class Main extends React.Component {
     };
 
     const setDeleteSuggestion = suggestion => {
-      //TODO update database -> fetch suggestions from db
-      this.setState({ deleteSuggestion: suggestion });
-
-      // let suggestions = [...this.state.suggestions];
-      // let updatedList = suggestions.filter(item => item.id !== suggestion.id);
-      // this.setState({ suggestions: updatedList });
+      this.setState({ suggestionToBeDeleted: suggestion });
     };
 
     const cancelDelete = () => {
-      this.setState({ deleteSuggestion: undefined });
+      this.setState({ suggestionToBeDeleted: undefined });
     };
 
     const deleteSuggestion = () => {
+      //TODO update database -> fetch suggestions from db
       let suggestions = [...this.state.suggestions];
       let updatedList = suggestions.filter(
         item => item.id !== this.state.deleteSuggestion.id
       );
-      this.setState({ suggestions: updatedList, deleteSuggestion: undefined });
+      this.setState({
+        suggestions: updatedList,
+        suggestionToBeDeleted: undefined
+      });
     };
 
     const likeSuggestion = suggestion => {
