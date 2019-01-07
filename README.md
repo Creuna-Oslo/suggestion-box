@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SuggestionBox
 This project was created with [@creuna/create-react-app](https://www.npmjs.com/package/@creuna/create-react-app).
 
@@ -84,3 +85,6 @@ Example:
 ## Code formatting
 
 `./.eslintrc.json` includes config for using [prettier](https://prettier.io) to format your source code. In addition to making your code look pretty, this helps to enforce a consistent coding style within your project. There are plugins for Prettier to most of the major editors (like [VS code](https://code.visualstudio.com) or [Sublime](https://www.sublimetext.com)). You should install the Prettier-pugin for your editor. It is very nice.
+=======
+# suggestion-box
+>>>>>>> Initial commit
