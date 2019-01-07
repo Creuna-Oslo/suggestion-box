@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 # SuggestionBox
+
 This project was created with [@creuna/create-react-app](https://www.npmjs.com/package/@creuna/create-react-app).
 
 ## Install dependencies
@@ -12,9 +12,9 @@ yarn
 
 Available scripts are defined in `package.json`. The most important ones are:
 
-* **dev**: Start development environment
-* **build**: Build bundle for production
-* **build:static**: Build static mockup site
+- **dev**: Start development environment
+- **build**: Build bundle for production
+- **build:static**: Build static mockup site
 
 Example:
 
@@ -26,11 +26,11 @@ yarn dev
 
 The `build` script outputs files to `./dist`. Important files to know about:
 
-* `client.js`: This is where all of your authored code ends up.
-* `vendor.js`: All of your `npm`-dependencies.
-* `server.js`: Bundle for server-side rendering the React-components. It contains everything from `client.js` and `vendor.js`.
-* `style.css`: Compiled Sass
-* `manifest.json`: Contains a list of mappings from source file to emitted file
+- `client.js`: This is where all of your authored code ends up.
+- `vendor.js`: All of your `npm`-dependencies.
+- `server.js`: Bundle for server-side rendering the React-components. It contains everything from `client.js` and `vendor.js`.
+- `style.css`: Compiled Sass
+- `manifest.json`: Contains a list of mappings from source file to emitted file
 
 Both `client.js` and `vendor.js` should be served to the client. Because of the file hashing, these can be cached indefinitely in the browser.
 
@@ -40,8 +40,8 @@ On the backend, use `manifest.json` to get the latest version of the built files
 
 ## Generated files
 
-* `./source/app.components.js`: This file exports all components directly descending `source/components` where the name of the folder and the name of the `.jsx` file are the same. This file is included in all of the javascript bundles.
-* `./source/mockup/pages/pages.js`: Exports all of the components in `source/mockup/pages`. It is used to build the front page of the mockup.
+- `./source/app.components.js`: This file exports all components directly descending `source/components` where the name of the folder and the name of the `.jsx` file are the same. This file is included in all of the javascript bundles.
+- `./source/mockup/pages/pages.js`: Exports all of the components in `source/mockup/pages`. It is used to build the front page of the mockup.
 
 ## Development
 
@@ -85,6 +85,3 @@ Example:
 ## Code formatting
 
 `./.eslintrc.json` includes config for using [prettier](https://prettier.io) to format your source code. In addition to making your code look pretty, this helps to enforce a consistent coding style within your project. There are plugins for Prettier to most of the major editors (like [VS code](https://code.visualstudio.com) or [Sublime](https://www.sublimetext.com)). You should install the Prettier-pugin for your editor. It is very nice.
-=======
-# suggestion-box
->>>>>>> Initial commit
