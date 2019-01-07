@@ -1,0 +1,29 @@
+.delete-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(39, 39, 39, 0.2);
+  top: 0;
+  left: 0;
+
+  &__content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 100px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      min-width: 120px;
+    }
+  }
+}
