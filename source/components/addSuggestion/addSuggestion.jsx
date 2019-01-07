@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
+import Button from 'components/button';
 
 class Addsuggestion extends React.Component {
   static propTypes = {
@@ -57,12 +58,12 @@ class Addsuggestion extends React.Component {
             onChange={e => this.updateTextField(e)}
             data-name="text"
           />
-          <button
+
+          <Button
             disabled={!this.state.category | !this.state.title}
             onClick={this.addSuggestion}
-          >
-            Legg i forslagskasse {'\u2709'}
-          </button>
+            text={`Legg i forslagskasse \u2709`}
+          />
         </div>
       </React.Fragment>
     );

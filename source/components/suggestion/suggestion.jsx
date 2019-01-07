@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Date from 'components/date';
+import Button from 'components/button';
 
 const Suggestion = props => (
   <div className="suggestion">
@@ -9,16 +10,16 @@ const Suggestion = props => (
     <div className="suggestion__category">
       <span>{props.suggestion.category}</span>
     </div>
-    <button
+    <Button
       className="suggestion__delete"
       onClick={() => props.deleteSuggestion(props.suggestion)}
-    >
-      🗑️
-    </button>
+      text="🗑️"
+    />
     <div className="suggestion__likes">
-      <button onClick={() => props.likeSuggestion(props.suggestion)}>
-        {props.suggestion.likes} ❤️
-      </button>
+      <Button
+        onClick={() => props.likeSuggestion(props.suggestion)}
+        text={`${props.suggestion.likes} ❤️`}
+      />
     </div>
     {props.suggestion.date && (
       <div className="suggestion__date">
