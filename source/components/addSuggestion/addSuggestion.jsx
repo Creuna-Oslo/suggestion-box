@@ -58,9 +58,8 @@ class Addsuggestion extends React.Component {
             onChange={e => this.updateTextField(e)}
             data-name="text"
           />
-
           <Button
-            disabled={!this.state.category | !this.state.title}
+            disabled={!this.state.category || !this.state.title}
             onClick={this.addSuggestion}
             text={`Legg i forslagskasse \u2709`}
           />
