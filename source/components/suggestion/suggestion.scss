@@ -21,8 +21,8 @@
     display: inline-block;
     width: 50%;
 
-    span {
-      background: yellow;
+    &:not(.liked) span {
+      filter: grayscale(50%);
     }
   }
 

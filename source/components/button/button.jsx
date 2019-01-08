@@ -7,7 +7,7 @@ const Button = props => (
     onClick={props.onClick}
     disabled={props.disabled}
   >
-    {props.text}
+    <span>{props.text}</span>
   </button>
 );
 

@@ -59,7 +59,7 @@ class Main extends React.Component {
       //TODO update database -> fetch suggestions from db
       let suggestions = [...this.state.suggestions];
       let updatedList = suggestions.filter(
-        item => item.id !== this.state.deleteSuggestion.id
+        item => item.id !== this.state.suggestionToBeDeleted.id
       );
       this.setState({
         suggestions: updatedList,
@@ -67,10 +67,12 @@ class Main extends React.Component {
       });
     };
 
-    const likeSuggestion = suggestion => {
+    const likeSuggestion = (suggestion, liked) => {
       let suggestions = [...this.state.suggestions];
       let index = suggestions.indexOf(suggestion);
-      suggestions[index].likes++;
+      let likes = suggestions[index].likes;
+
+      suggestions[index].likes = liked === true ? likes + 1 : likes - 1;
 
       this.setState({ suggestions: suggestions });
     };
@@ -104,9 +106,9 @@ class Main extends React.Component {
               )
           )}
         </div>
-        {this.state.deleteSuggestion && (
+        {this.state.suggestionToBeDeleted && (
           <DeleteModal
-            suggestion={this.state.deleteSuggestion}
+            suggestion={this.state.suggestionToBeDeleted}
             cancel={cancelDelete}
             confirm={deleteSuggestion}
           />
