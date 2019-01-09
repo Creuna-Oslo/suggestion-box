@@ -18,4 +18,12 @@ button {
   &:disabled {
     filter: brightness(50%) grayscale(80%);
   }
+
+  &.--red {
+    background: red;
+
+    &:hover:not(:disabled) {
+      background: lighten(red, 10%);
+    }
+  }
 }

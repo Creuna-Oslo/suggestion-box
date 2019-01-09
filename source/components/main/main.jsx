@@ -5,8 +5,6 @@ import Filter from 'components/filter';
 import DeleteModal from 'components/deleteModal';
 import PropTypes from 'prop-types';
 
-//TODO prevent "jumping" to top when selecting filters?
-
 class Main extends React.Component {
   static propTypes = {
     suggestions: PropTypes.array,

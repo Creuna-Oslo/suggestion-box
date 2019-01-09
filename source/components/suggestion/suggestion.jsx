@@ -1,18 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Date from 'components/date';
 import Button from 'components/button';
 import cn from 'classnames';
 
 class Suggestion extends React.Component {
-  static propTypes = {
-    // suggestion: PropTypes.object
-    // text: PropTypes.string,
-    // likes: PropTypes.number,
-    // deleteSuggestion: PropTypes.func,
-    // likeSuggestion: PropTypes.func
-  };
-
   state = {
     liked: false
   };
@@ -33,11 +24,12 @@ class Suggestion extends React.Component {
         <div className="suggestion__category">
           <span>{props.suggestion.category}</span>
         </div>
-        <Button
-          className="suggestion__delete"
-          onClick={() => props.deleteSuggestion(props.suggestion)}
-          text="🗑️"
-        />
+        <div className="suggestion__delete">
+          <Button
+            onClick={() => props.deleteSuggestion(props.suggestion)}
+            text="🗑️"
+          />
+        </div>
         <div className={cn('suggestion__likes', { liked: this.state.liked })}>
           <Button onClick={toggleLike} text={`${props.suggestion.likes} ❤️`} />
         </div>
