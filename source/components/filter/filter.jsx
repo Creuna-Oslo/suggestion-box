@@ -16,7 +16,7 @@ const Filter = props => (
       <label key={`${filter}-filter`}>
         <input
           type="checkbox"
-          onChange={() => props.handleChange(filter)}
+          onChange={() => props.updateFilters(filter)}
           className={getColorClass(index)}
           checked={props.activeFilters.includes(filter)}
         />
@@ -27,7 +27,7 @@ const Filter = props => (
 );
 
 Filter.propTypes = {
-  handleChange: PropTypes.func,
+  updateFilters: PropTypes.func,
   resetFilters: PropTypes.func,
   filterOptions: PropTypes.array,
   activeFilters: PropTypes.array

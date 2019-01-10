@@ -19,7 +19,7 @@ class Main extends React.Component {
   };
 
   render() {
-    const updateSuggestions = suggestion => {
+    const addSuggestion = suggestion => {
       let suggestions = [...this.state.suggestions];
 
       suggestions.unshift(suggestion);
@@ -29,7 +29,7 @@ class Main extends React.Component {
     const filteredSuggestions = (category, suggestion) =>
       category === suggestion.category;
 
-    const handleFilters = category => {
+    const updateFilters = category => {
       let filters = [...this.state.filters];
 
       if (filters.includes(category)) {
@@ -54,7 +54,6 @@ class Main extends React.Component {
     };
 
     const deleteSuggestion = () => {
-      //TODO update database -> fetch suggestions from db
       let suggestions = [...this.state.suggestions];
       let updatedList = suggestions.filter(
         item => item.id !== this.state.suggestionToBeDeleted.id
@@ -79,13 +78,13 @@ class Main extends React.Component {
       <div className="main">
         <h1 className="main-title">Creuna Forslagskasse</h1>
         <AddSuggestion
-          updateSuggestions={updateSuggestions}
+          addSuggestion={addSuggestion}
           categories={this.state.categories}
         />
         <Filter
           filterOptions={this.state.categories}
           activeFilters={this.state.filters}
-          handleChange={handleFilters}
+          updateFilters={updateFilters}
           resetFilters={resetFilters}
         />
         <div className="suggestion-lists-container">
