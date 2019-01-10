@@ -4,6 +4,7 @@ import AddSuggestion from 'components/addSuggestion';
 import Filter from 'components/filter';
 import DeleteModal from 'components/deleteModal';
 import PropTypes from 'prop-types';
+import { getColor } from '../../sharedFunctions';
 
 class Main extends React.Component {
   static propTypes = {
@@ -27,11 +28,6 @@ class Main extends React.Component {
 
     const filteredSuggestions = (category, suggestion) =>
       category === suggestion.category;
-
-    const getColor = index => {
-      const colors = ['red', 'green', 'yellow', 'purple'];
-      return colors[index % colors.length];
-    };
 
     const handleFilters = category => {
       let filters = [...this.state.filters];
