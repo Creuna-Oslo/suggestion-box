@@ -1,6 +1,6 @@
 button {
   padding: 10px;
-  background: #27affd;
+  background: $color-blue;
   color: white;
   border: none;
   height: 50px;
@@ -9,10 +9,10 @@ button {
   align-self: flex-end;
   width: auto;
   margin: 3px 0;
-  border-bottom: 3px solid darken(#27affd, 20%);
+  border-bottom: 3px solid darken($color-blue, 20%);
 
   &:hover:not(:disabled) {
-    background: lighten(#27affd, 5%);
+    background: lighten($color-blue, 5%);
   }
 
   &:disabled {
@@ -23,7 +23,7 @@ button {
   &.--transparent {
     background: transparent;
     border: none;
-    color: #333;
+    color: $color-dark-gray;
 
     &:hover:not(:disabled) {
       background: transparent;
