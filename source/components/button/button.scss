@@ -20,10 +20,11 @@ button {
   }
 
   &.--red {
-    background: red;
+    background: $color-red;
+    border-bottom: 3px solid darken($color-red, 20%);
 
     &:hover:not(:disabled) {
-      background: lighten(red, 10%);
+      background: lighten($color-red, 10%);
     }
   }
 }

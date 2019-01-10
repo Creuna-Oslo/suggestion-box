@@ -18,8 +18,8 @@
 
   input:checked ~ span:before {
     content: "";
-    background: white;
-    border: 6px $color-main-light solid;
+    background: linear-gradient(45deg, $color-red, $color-yellow, $color-green);
+    border: 6px #555 solid;
     box-sizing: border-box;
   }
 

@@ -4,6 +4,7 @@ import AddSuggestion from 'components/addSuggestion';
 import Filter from 'components/filter';
 import DeleteModal from 'components/deleteModal';
 import PropTypes from 'prop-types';
+import { getColorClass } from '../../sharedFunctions';
 
 class Main extends React.Component {
   static propTypes = {
@@ -45,6 +46,10 @@ class Main extends React.Component {
       this.setState({ filters: filters });
     };
 
+    const resetFilters = () => {
+      this.setState({ filters: [] });
+    };
+
     const setDeleteSuggestion = suggestion => {
       this.setState({ suggestionToBeDeleted: suggestion });
     };
@@ -84,7 +89,9 @@ class Main extends React.Component {
         />
         <Filter
           filterOptions={this.state.categories}
+          activeFilters={this.state.filters}
           handleChange={handleFilters}
+          resetFilters={resetFilters}
         />
         <div className="suggestion-lists-container">
           {this.props.categories.map(
@@ -94,7 +101,7 @@ class Main extends React.Component {
                 <SuggestionsList
                   key={category}
                   category={category}
-                  color={getColor(index)}
+                  color={getColorClass(index)}
                   suggestions={this.state.suggestions.filter(
                     filteredSuggestions.bind(this, category)
                   )}

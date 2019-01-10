@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/button';
-import { test } from 'components/button';
 
 const DeleteModal = props => (
   <div className="delete-modal" onClick={props.cancel}>
