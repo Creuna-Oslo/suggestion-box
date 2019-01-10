@@ -28,10 +28,15 @@ class Suggestion extends React.Component {
           <Button
             onClick={() => props.deleteSuggestion(props.suggestion)}
             text="🗑️"
+            className="--transparent"
           />
         </div>
         <div className={cn('suggestion__likes', { liked: this.state.liked })}>
-          <Button onClick={toggleLike} text={`${props.suggestion.likes} ❤️`} />
+          <Button
+            onClick={toggleLike}
+            text={`${props.suggestion.likes} ❤️`}
+            className="--transparent"
+          />
         </div>
         {props.suggestion.date && (
           <div className="suggestion__date">

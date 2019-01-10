@@ -1,11 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo+Narrow");
+
 html {
   box-sizing: border-box;
+  padding-bottom: 40px;
+  margin: 0 20px;
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Archivo Narrow", sans-serif;
 }
 
 body {

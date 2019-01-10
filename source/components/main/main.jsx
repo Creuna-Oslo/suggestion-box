@@ -29,11 +29,6 @@ class Main extends React.Component {
     const filteredSuggestions = (category, suggestion) =>
       category === suggestion.category;
 
-    const getColor = index => {
-      const colors = ['red', 'green', 'yellow', 'purple'];
-      return colors[index % colors.length];
-    };
-
     const handleFilters = category => {
       let filters = [...this.state.filters];
 
