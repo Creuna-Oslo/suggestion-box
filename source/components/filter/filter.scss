@@ -18,14 +18,34 @@
 
   input:checked ~ span:before {
     content: "";
-    background: white;
-    border: 6px $color-main-light solid;
+    background: linear-gradient(45deg, $color-red, $color-yellow, $color-green);
+    border: 6px $color-middle-gray solid;
     box-sizing: border-box;
+  }
+
+  input.red:checked ~ span:before {
+    background: $color-red;
+  }
+
+  input.green:checked ~ span:before {
+    background: $color-green;
+  }
+
+  input.yellow:checked ~ span:before {
+    background: $color-yellow;
+  }
+
+  input.purple:checked ~ span:before {
+    background: $color-purple;
+  }
+
+  input.teal:checked ~ span:before {
+    background: $color-teal;
   }
 
   span {
     margin: 6px;
-    color: white;
+    color: $color-dark-gray;
     width: 100%;
     height: 100%;
   }
@@ -35,7 +55,7 @@
     display: inline-block;
     height: 24px;
     width: 24px;
-    background: $color-main-light;
+    background: $color-middle-gray;
     margin-right: 6px;
     position: relative;
     top: 3px;

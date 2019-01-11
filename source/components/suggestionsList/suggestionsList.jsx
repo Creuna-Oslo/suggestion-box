@@ -19,7 +19,7 @@ const Suggestionslist = props => (
       ))}
     </FlipMotion>
     {props.suggestions.length === 0 && (
-      <h2 className="suggestions-list__empty">ingen forslag!</h2>
+      <h2 className="suggestions-list__empty">Ingen forslag, har du ett?</h2>
     )}
   </div>
 );

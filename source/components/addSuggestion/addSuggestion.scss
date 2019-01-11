@@ -3,35 +3,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // padding: 80px 200px;
-  margin: 80px 0;
+  margin-bottom: 80px;
+  background: white;
+  box-shadow: $box-shadow;
+  padding: 20px;
 
   select,
   input,
   textarea {
-    border-radius: 10px;
-    border: 3px solid $color-main-dark;
+    border: none;
+    margin: 10px 0;
     padding: 10px;
-    background: $color-main-light;
-    background: linear-gradient(
-      rgba($color-main-light, 0.8),
-      5%,
-      lighten($color-main-dark, 20%),
-      95%,
-      rgba($color-main-light, 0.8)
-    );
-    color: white;
+    background: $color-main-dark;
+    color: $color-dark-gray;
 
     &::placeholder {
-      color: #f7f09b80;
+      color: $color-light-gray;
     }
   }
 
   select > option {
-    color: #333;
+    color: $color-dark-gray;
 
     &:first-of-type {
-      color: #ccc;
+      color: $color-light-gray;
     }
   }
 

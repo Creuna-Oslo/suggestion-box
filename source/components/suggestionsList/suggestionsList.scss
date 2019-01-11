@@ -1,8 +1,8 @@
 .suggestions-list {
   padding: 20px 10px 10px 10px;
   margin: 10px;
-  border-radius: 10px;
-  background: lighten($color-main-dark, 10%);
+  background: white;
+  box-shadow: $box-shadow;
   display: inline-block;
   padding: 0;
   min-height: 200px;
@@ -10,25 +10,28 @@
   &__title {
     text-transform: uppercase;
     text-align: center;
-    background: yellow;
     margin: 0 0 40px 0;
-    border-radius: 10px 10px 0 0;
     font-size: 28px;
+    border-top: 5px solid;
 
     &.red {
-      background: red;
+      border-color: $color-red;
     }
 
     &.green {
-      background: #10cf10;
+      border-color: $color-green;
     }
 
     &.yellow {
-      background: #ffff00;
+      border-color: $color-yellow;
     }
 
     &.purple {
-      background: #c011c0;
+      border-color: $color-purple;
+    }
+
+    &.teal {
+      border-color: $color-teal;
     }
   }
 

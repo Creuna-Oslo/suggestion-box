@@ -4,8 +4,7 @@ import AddSuggestion from 'components/addSuggestion';
 import Filter from 'components/filter';
 import DeleteModal from 'components/deleteModal';
 import PropTypes from 'prop-types';
-
-//TODO prevent "jumping" to top when selecting filters
+import { getColorClass } from '../../sharedFunctions';
 
 class Main extends React.Component {
   static propTypes = {
@@ -20,7 +19,7 @@ class Main extends React.Component {
   };
 
   render() {
-    const updateSuggestions = suggestion => {
+    const addSuggestion = suggestion => {
       let suggestions = [...this.state.suggestions];
 
       suggestions.unshift(suggestion);
@@ -30,12 +29,7 @@ class Main extends React.Component {
     const filteredSuggestions = (category, suggestion) =>
       category === suggestion.category;
 
-    const getColor = index => {
-      const colors = ['red', 'green', 'yellow', 'purple'];
-      return colors[index % colors.length];
-    };
-
-    const handleFilters = category => {
+    const updateFilters = category => {
       let filters = [...this.state.filters];
 
       if (filters.includes(category)) {
@@ -47,31 +41,35 @@ class Main extends React.Component {
       this.setState({ filters: filters });
     };
 
-    const setDeleteSuggestion = suggestion => {
-      //TODO update database -> fetch suggestions from db
-      this.setState({ deleteSuggestion: suggestion });
+    const resetFilters = () => {
+      this.setState({ filters: [] });
+    };
 
-      // let suggestions = [...this.state.suggestions];
-      // let updatedList = suggestions.filter(item => item.id !== suggestion.id);
-      // this.setState({ suggestions: updatedList });
+    const setDeleteSuggestion = suggestion => {
+      this.setState({ suggestionToBeDeleted: suggestion });
     };
 
     const cancelDelete = () => {
-      this.setState({ deleteSuggestion: undefined });
+      this.setState({ suggestionToBeDeleted: undefined });
     };
 
     const deleteSuggestion = () => {
       let suggestions = [...this.state.suggestions];
       let updatedList = suggestions.filter(
-        item => item.id !== this.state.deleteSuggestion.id
+        item => item.id !== this.state.suggestionToBeDeleted.id
       );
-      this.setState({ suggestions: updatedList, deleteSuggestion: undefined });
+      this.setState({
+        suggestions: updatedList,
+        suggestionToBeDeleted: undefined
+      });
     };
 
-    const likeSuggestion = suggestion => {
+    const likeSuggestion = (suggestion, liked) => {
       let suggestions = [...this.state.suggestions];
       let index = suggestions.indexOf(suggestion);
-      suggestions[index].likes++;
+      let likes = suggestions[index].likes;
+
+      suggestions[index].likes = liked === true ? likes + 1 : likes - 1;
 
       this.setState({ suggestions: suggestions });
     };
@@ -80,12 +78,14 @@ class Main extends React.Component {
       <div className="main">
         <h1 className="main-title">Creuna Forslagskasse</h1>
         <AddSuggestion
-          updateSuggestions={updateSuggestions}
+          addSuggestion={addSuggestion}
           categories={this.state.categories}
         />
         <Filter
           filterOptions={this.state.categories}
-          handleChange={handleFilters}
+          activeFilters={this.state.filters}
+          updateFilters={updateFilters}
+          resetFilters={resetFilters}
         />
         <div className="suggestion-lists-container">
           {this.props.categories.map(
@@ -95,7 +95,7 @@ class Main extends React.Component {
                 <SuggestionsList
                   key={category}
                   category={category}
-                  color={getColor(index)}
+                  color={getColorClass(index)}
                   suggestions={this.state.suggestions.filter(
                     filteredSuggestions.bind(this, category)
                   )}
@@ -105,9 +105,9 @@ class Main extends React.Component {
               )
           )}
         </div>
-        {this.state.deleteSuggestion && (
+        {this.state.suggestionToBeDeleted && (
           <DeleteModal
-            suggestion={this.state.deleteSuggestion}
+            suggestion={this.state.suggestionToBeDeleted}
             cancel={cancelDelete}
             confirm={deleteSuggestion}
           />

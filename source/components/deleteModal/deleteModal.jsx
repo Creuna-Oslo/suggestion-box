@@ -9,7 +9,7 @@ const DeleteModal = props => (
       <h2>{props.suggestion.title}</h2>
       <div className="delete-modal__buttons">
         <Button onClick={props.cancel} text="Tilbake" />
-        <Button onClick={props.confirm} text="Ja" />
+        <Button onClick={props.confirm} text="Slett" className="--red" />
       </div>
     </div>
   </div>

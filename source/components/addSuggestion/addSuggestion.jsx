@@ -5,7 +5,7 @@ import Button from 'components/button';
 
 class Addsuggestion extends React.Component {
   static propTypes = {
-    updateSuggestions: PropTypes.func,
+    addSuggestion: PropTypes.func,
     categories: PropTypes.array
   };
 
@@ -20,15 +20,15 @@ class Addsuggestion extends React.Component {
     this.setState({ [name]: e.target.value });
   };
 
-  setCategory = e => this.setState({ category: e.target.value });
+  selectCategory = e => this.setState({ category: e.target.value });
 
-  addSuggestion = () => {
+  createSuggestion = () => {
     let suggestion = { ...this.state };
     suggestion.id = shortid.generate();
     suggestion.likes = 0;
     suggestion.date = new Date();
 
-    this.props.updateSuggestions(suggestion);
+    this.props.addSuggestion(suggestion);
     this.setState({ title: '', text: '' });
   };
 
@@ -36,7 +36,7 @@ class Addsuggestion extends React.Component {
     return (
       <React.Fragment>
         <div className="add-suggestion">
-          <select onChange={this.setCategory} value={this.state.category}>
+          <select onChange={this.selectCategory} value={this.state.category}>
             <option defaultValue="" disabled={!!this.state.category}>
               -- Velg kategori --
             </option>
@@ -58,10 +58,9 @@ class Addsuggestion extends React.Component {
             onChange={e => this.updateTextField(e)}
             data-name="text"
           />
-
           <Button
-            disabled={!this.state.category | !this.state.title}
-            onClick={this.addSuggestion}
+            disabled={!this.state.category || !this.state.title}
+            onClick={this.createSuggestion}
             text={`Legg i forslagskasse \u2709`}
           />
         </div>
