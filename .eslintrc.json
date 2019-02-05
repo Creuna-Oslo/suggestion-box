@@ -25,7 +25,8 @@
     "prettier/prettier": [
       "warn",
       {
-        "singleQuote": true
+        "singleQuote": true,
+        "endOfLine": "auto"
       }
     ],
     "strict": 0,
